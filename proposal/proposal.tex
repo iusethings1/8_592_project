@@ -1,0 +1,48 @@
+\documentclass[letterpaper]{article}
+
+\newcommand{\Hline}{\rule{\linewidth}{.2mm}}
+
+\setlength{\parindent}{0pt} \setlength{\parskip}{6pt}
+\setlength{\textheight}{23cm} \addtolength{\voffset}{-1.5cm}
+\setlength{\textwidth}{17cm} \addtolength{\hoffset}{-2cm}
+
+\usepackage{xspace}
+\usepackage{palatino}
+\usepackage{color}
+\usepackage{graphicx}% Include figure files
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{mathtools}
+\DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+\DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage[numbers]{natbib}
+
+\begin{document}
+
+    \begin{centering}
+
+        {\huge \textsc{Proposal}} \
+        \author{Akshat Chaudhary}
+        \vspace{0.25cm}
+        
+        \today
+        
+    \end{centering}	
+
+    \section{Idea \& How I got here}
+    I find it interesting to examine how our brains actually think, and how much task-dependent structure there is. Much of this idea has been investigated \cite{clark2026} in some depth, with a dynamical mean-field theory (DMFT) for recurrent neural networks, with a parameter $ \gamma $ that determines whether the network is being trained in the reservoir regime ($ \gamma \rightarrow 0^+ $) or in a regime where weights are structured by correlations in the expected task outputs (to a degree specified by the magnitude of $ \gamma $). Here, the activation functions $ \phi\left( \cdot \right)  $ used are nonlinear $ \tanh $ and the system considers only one-to-one interactions.
+
+    However, there may be value (as the authors mention in SI7) in considering a $ p $-neuron generalisation. When $ \phi $ is taken to be linear (e.g. $ \phi(x) = x $), the DMFT equations become much simpler and may be solved (in principle) without the expensive Monte Carlo processes used by \cite{clark2026}. Further, when $ p > 1 $, the linear activations can generate nonlinear and chaotic dynamics, and deeper analysis of this model has not been done in the regime where $ \gamma > 0 $.
+
+    There is some biological motivation to this project \cite{kozachkov2025}. However, a problem is to consider how to bound the linear activations, and it has been suggested to constrain activations to a fixed spherical norm \cite{clark2026}. If there turn out to be ways to investigate if other constraints work without sacrificing the solvability of the DMFT, that will also be interesting. Further, the single-neuron statistics remain Gaussian (due to the linear activation), and are hence more tractable.
+
+    Therefore the question I hope to ask will be: "Can a linear $ p $-neuron network be trained to exhibit responses similar to those of the $ p=1 $ nonlinear case? What is the theory that governs its behavior, and can the DMFT be made solvable?"
+
+    I will start by writing a model with a tunable $ p $, and try out a toy problem (like the sine wave) before attempting to replicate the macaque results. I will also attempt to solve the DMFT in whichever way makes sense (I will probably need some advice on this!).
+
+\bibliographystyle{unsrt}
+\bibliography{F26_project}
+\end{document}
+
